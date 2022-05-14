@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="Laboratory4.Views.DateOfBirthInfoView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MaxHeight="1000"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <DataGrid Grid.Row="0" Grid.ColumnSpan="5"  ItemsSource="{Binding Persons, Mode=OneWay}" AutoGenerateColumns="False" IsReadOnly="True" SelectedItem="{Binding SelectedPerson}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First name" Binding="{Binding FirstName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Last name" Binding="{Binding LastName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Birth date" Binding="{Binding DateOfBirthStr}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Is adult" Binding="{Binding IsAdult}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Sun sign" Binding="{Binding SunSign}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Chinese sign" Binding="{Binding ChineseSign}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Is birtday" Binding="{Binding IsBirthday}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="1" Grid.Column = "0" Margin="5" Name="AcceptButton" Content="Add" Command="{Binding BackCommand}"></Button>
+        <Button Grid.Row="1" Grid.Column = "1" Margin="5" Name="DeleteButton" Content="Delete" Command="{Binding DeleteCommand}"></Button>
+        <Button Grid.Row="1" Grid.Column = "2" Margin="5" Name="RedactButton" Content="Redact" Command="{Binding RedactCommand}"></Button>
+        <Button Grid.Row="1" Grid.Column = "3" Margin="5" Name="SortButton" Content="Sort by last name" Command="{Binding SortCommand}"></Button>
+        <Button Grid.Row="1" Grid.Column = "4" Margin="5" Name="FiltertButton" Content="{Binding FilterMessage}" Command="{Binding FilterCommand}"></Button>
+    </Grid>
+</UserControl>
