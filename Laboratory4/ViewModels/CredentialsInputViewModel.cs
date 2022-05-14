@@ -98,23 +98,20 @@ namespace Laboratory4.ViewModels
                 MessageBox.Show(ex.Message);
                 return;
             }
-            catch(NegativeAgeException ex)
+            catch (NegativeAgeException ex)
             {
                 MessageBox.Show(ex.Message);
                 return;
             }
-            catch(TooOldExcpetion ex)
+            catch (TooOldExcpetion ex)
             {
                 MessageBox.Show(ex.Message);
                 return;
             }
-            
+
             await personRepository.AddOrUpdateAsync(person);
-            DateOfBirthInfoViewModel.addPerson(new PersonViewModel(person,_goToDateOfBirthInfo));
-            //MessageBox.Show(CanExecute(person).ToString());
+            DateOfBirthInfoViewModel.addPerson(new PersonViewModel(person, _goToDateOfBirthInfo));
             _goToDateOfBirthInfo.Invoke();
         }
-
-
     }
 }

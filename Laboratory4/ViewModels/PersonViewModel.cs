@@ -177,8 +177,6 @@ namespace Laboratory4.ViewModels
             }
             _person = person;
             await personRepository.AddOrUpdateAsync(_person);
-            //DateOfBirthInfoViewModel.addPerson(person);
-            //MessageBox.Show(CanExecute(person).ToString());
             _goToDateOfBirthInfo.Invoke();
         }
     }
