@@ -181,6 +181,7 @@ namespace Laboratory4.ViewModels
             await _personRepository.Delete(SelectedPerson.ThePerson);
             AllPersons.Remove(SelectedPerson);
             Persons.Remove(SelectedPerson);
+            OnPropertyChanged();
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
